@@ -498,7 +498,10 @@ const PRIZES = [
   line:"The consolation classic. The Spoon race on the final group matchday is often better drama than the title race."}
 ];
 
-const DRAW = JSON.parse(atob(SEALED));   // [{name, t:[teamIdx,...]}]
+/* display order only — shuffled once; team assignments in the sealed draw are untouched */
+const ORDER = ['Bernadine','Daniel','Eddy','Roy','Yolande','Christiaan','Paulo','Colin','Steve','Shannon','Johan','David','Sujay','Paul'];
+const DRAW = JSON.parse(atob(SEALED))    // [{name, t:[teamIdx,...]}]
+  .sort((a,b)=>ORDER.indexOf(a.name)-ORDER.indexOf(b.name));
 const POT_NAMES = ["Pot 1 · The Contenders", "Pot 2 · The Dark Horses"];
 
 /* flag images render everywhere (emoji flags fail on Windows); emoji is the alt fallback */
