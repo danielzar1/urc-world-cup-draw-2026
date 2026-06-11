@@ -81,6 +81,21 @@
   .divider::after { transform:scaleX(-1); }
   .divider .dot { width:6px; height:6px; transform:rotate(45deg); background:var(--gold); }
 
+  /* ============ RULES BOX ============ */
+  .rules { margin:18px 0 4px; border-radius:var(--radius); border:1px solid var(--panel-edge);
+    background: var(--panel); overflow:hidden; }
+  .rules summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px;
+    padding:14px 16px; font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold-hi);
+    user-select:none; }
+  .rules summary::-webkit-details-marker { display:none; }
+  .rules summary .arrow { margin-left:auto; transition: transform .25s; font-size:11px; color:var(--txt-dim); }
+  .rules[open] summary .arrow { transform: rotate(180deg); }
+  .rules .body { padding:2px 16px 16px; }
+  .rules .body p { font-size:12.5px; color:var(--txt-mid); line-height:1.7; margin-top:9px; }
+  .rules .body p strong { color:var(--txt); }
+  .rules .body .pot-line { display:flex; gap:8px; align-items:flex-start; }
+  .rules .body .pot-line .dot2 { flex-shrink:0; width:8px; height:8px; border-radius:50%; margin-top:7px; }
+
   /* ============ HOME / NAMES ============ */
   .prompt { text-align:center; font-size:13px; color:var(--txt-mid); font-weight:600; margin: 14px 0 18px; letter-spacing:.3px; }
   .names { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
@@ -331,6 +346,16 @@
       <div class="divider"><span class="dot"></span></div>
       <span class="eyebrow">Official office sweepstake</span>
     </div>
+    <details class="rules">
+      <summary>ℹ️ How the draw works <span class="arrow">▼</span></summary>
+      <div class="body">
+        <p><strong>Your teams are already decided.</strong> Every team was randomly assigned in a single sealed draw before this page went live — completely random, witnessed by no one (not even the organiser). Tapping your name doesn't roll the dice; it reveals what the sealed draw gave you. Open it today or next week, on any phone — your teams never change.</p>
+        <p><strong>The pool:</strong> the top 25 nations ranked by World Cup title odds (bookmakers' odds, June 2026), split into two seeded pots for fairness:</p>
+        <p class="pot-line"><span class="dot2" style="background:var(--gold)"></span><span><strong>Pot 1 · The Contenders</strong> — the top 14 (Spain through Morocco). All 14 players drew one team each, with an identical 1-in-14 chance of any team — whether you bought one ticket or two.</span></p>
+        <p class="pot-line"><span class="dot2" style="background:var(--green)"></span><span><strong>Pot 2 · The Dark Horses</strong> — ranks 15–25 (Japan through Canada). Players with two picks drew their second team here.</span></p>
+        <p><strong>5 trophies</strong> are up for grabs — see the 🏆 Prizes tab. Official FIFA stats settle all disputes. Good luck!</p>
+      </div>
+    </details>
     <div class="prompt">Find your name below and draw your teams live.</div>
     <div class="names" id="names"></div>
   </section>
